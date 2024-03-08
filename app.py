@@ -83,6 +83,9 @@ with st.sidebar:
             with st.spinner("Processing"):
                  st.session_state.vector_store = get_vectorstore(pdf_docs)
     
+    if st.button("Clear"):
+         st.empty()
+    
 # if "vector_store" not in st.session_state:
 #      st.session_state.vector_store = get_vectorstore(pdf_docs)
 
