@@ -77,7 +77,9 @@ def get_response(user_input):
 st.set_page_config(page_title="PDF-QA-AI", page_icon="📚")
 
 with st.sidebar:
-    st.title("PDF-QA-AI")
+    st.title('''PDF
+             QA
+             AI''')
     st.header("Upload any E-Books, Notes, or Reference PDFs here")
     pdf_docs = st.file_uploader("Upload your PDFs here", accept_multiple_files=True)
     if st.button("Process"):
