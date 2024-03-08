@@ -8,8 +8,6 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
 
 
 load_dotenv()
@@ -83,9 +81,7 @@ with st.sidebar:
     if st.button("Process"):
             with st.spinner("Processing"):
                  st.session_state.vector_store = get_vectorstore(pdf_docs)
-    
-    # st.download_button('Save Chat', text_contents)
-    
+        
     
 # if "vector_store" not in st.session_state:
 #      st.session_state.vector_store = get_vectorstore(pdf_docs)
@@ -112,3 +108,6 @@ for message in st.session_state.chat_history:
         elif isinstance(message, HumanMessage):
             with st.chat_message("Human"):
                 st.write(message.content)
+
+if st.button("Delete Conversation"):
+     st.session_state["chat_history"] = ""
