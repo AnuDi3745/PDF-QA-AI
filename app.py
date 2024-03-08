@@ -78,7 +78,6 @@ st.set_page_config(page_title="Chat with websites", page_icon="🤖")
 st.title("PDF-QA-AI")
 
 with st.sidebar:
-    st.header("PDF-QA-AI")
     pdf_docs = st.file_uploader("Upload your PDFs here", accept_multiple_files=True)
     if st.button("Process"):
             with st.spinner("Processing"):
