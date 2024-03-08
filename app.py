@@ -81,6 +81,9 @@ with st.sidebar:
     if st.button("Process PDFs"):
             with st.spinner("Processing"):
                  st.session_state.vector_store = get_vectorstore(pdf_docs)
+
+    st.download_button('Download Chat',  st.session_state.chat_history)
+
     if st.button("Delete Chat"):
             st.session_state.chat_history = [
             AIMessage(content="Hi I am PDF-QA-AI, your notes provider!!"),
