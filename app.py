@@ -83,8 +83,8 @@ with st.sidebar:
                  st.session_state.vector_store = get_vectorstore(pdf_docs)
 
     if st.button("Download Chat"):
-         text_dwnld = ' '.join(map(str, st.session_state.chat_history))
-         st.download_button('Download Chat',  text_dwnld)
+        text_dwnld = ' '.join(map(str, st.session_state.chat_history))
+        st.download_button('Download Chat',  text_dwnld)
 
     if st.button("Delete Chat"):
             st.session_state.chat_history = [
