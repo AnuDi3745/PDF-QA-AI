@@ -104,7 +104,6 @@ if user_query is not None and user_query != "":
         st.session_state.chat_history.append(HumanMessage(content=user_query))
         st.session_state.chat_history.append(AIMessage(content=response))
         
-       
 
 for message in st.session_state.chat_history:
         if isinstance(message, AIMessage):
@@ -113,5 +112,3 @@ for message in st.session_state.chat_history:
         elif isinstance(message, HumanMessage):
             with st.chat_message("Human"):
                 st.write(message.content)
-        
-        st.download_button('Save Chat', message)
