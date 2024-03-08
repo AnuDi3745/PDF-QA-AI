@@ -109,5 +109,3 @@ for message in st.session_state.chat_history:
             with st.chat_message("Human"):
                 st.write(message.content)
 
-if st.button("Delete Conversation"):
-     st.session_state["chat_history"] = ""
