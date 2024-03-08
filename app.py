@@ -84,7 +84,7 @@ with st.sidebar:
 
     if st.button("Download Chat"):
         text_dwnld = ' '.join(map(str, st.session_state.chat_history))
-        st.download_button('Download Chat',  text_dwnld)
+        st.download_button('Confirm Download?',  text_dwnld)
 
     if st.button("Delete Chat"):
             st.session_state.chat_history = [
