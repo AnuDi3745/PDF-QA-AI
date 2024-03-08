@@ -75,6 +75,7 @@ def get_response(user_input):
     return response['answer']
 
 st.set_page_config(page_title="Chat with websites", page_icon="🤖")
+st.title("PDF-QA-AI")
 
 with st.sidebar:
     st.header("PDF-QA-AI")
