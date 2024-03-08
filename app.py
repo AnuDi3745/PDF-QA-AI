@@ -81,6 +81,11 @@ with st.sidebar:
     if st.button("Process"):
             with st.spinner("Processing"):
                  st.session_state.vector_store = get_vectorstore(pdf_docs)
+    if st.button("Clear Convo"):
+            st.session_state.chat_history = [
+            AIMessage(content="Hi I am PDF-QA-AI, your notes provider!!"),
+        ]
+
         
     
 # if "vector_store" not in st.session_state:
