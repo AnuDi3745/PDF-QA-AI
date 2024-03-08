@@ -84,6 +84,8 @@ with st.sidebar:
             with st.spinner("Processing"):
                  st.session_state.vector_store = get_vectorstore(pdf_docs)
     
+    st.download_button('Save Chat', text_contents)
+    
     
 # if "vector_store" not in st.session_state:
 #      st.session_state.vector_store = get_vectorstore(pdf_docs)
@@ -111,3 +113,5 @@ for message in st.session_state.chat_history:
         elif isinstance(message, HumanMessage):
             with st.chat_message("Human"):
                 st.write(message.content)
+        
+        st.download_button('Save Chat', message)
