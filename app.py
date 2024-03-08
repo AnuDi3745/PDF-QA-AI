@@ -84,8 +84,6 @@ with st.sidebar:
             with st.spinner("Processing"):
                  st.session_state.vector_store = get_vectorstore(pdf_docs)
     
-    if st.button("Clear"):
-         st.empty()
     
 # if "vector_store" not in st.session_state:
 #      st.session_state.vector_store = get_vectorstore(pdf_docs)
@@ -109,7 +107,7 @@ if user_query is not None and user_query != "":
 for message in st.session_state.chat_history:
         if isinstance(message, AIMessage):
             with st.chat_message("AI"):
-                st.write(get_response(user_query))
+                st.write(message.content)
         elif isinstance(message, HumanMessage):
             with st.chat_message("Human"):
                 st.write(message.content)
