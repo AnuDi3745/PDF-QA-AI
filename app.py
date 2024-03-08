@@ -78,6 +78,7 @@ st.set_page_config(page_title="PDF-QA-AI", page_icon="📚")
 st.title("PDF-QA-AI")
 
 with st.sidebar:
+    st.header("Upload any E-Books, Notes, or Reference PDFs here")
     pdf_docs = st.file_uploader("Upload your PDFs here", accept_multiple_files=True)
     if st.button("Process"):
             with st.spinner("Processing"):
