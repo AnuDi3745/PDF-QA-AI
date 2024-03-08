@@ -109,7 +109,7 @@ if user_query is not None and user_query != "":
 for message in st.session_state.chat_history:
         if isinstance(message, AIMessage):
             with st.chat_message("AI"):
-                st.write(message.content)
+                st.write_stream(get_response(user_query))
         elif isinstance(message, HumanMessage):
             with st.chat_message("Human"):
                 st.write(message.content)
