@@ -78,7 +78,7 @@ with st.sidebar:
     st.title("PDF-QA-AI")
     st.header("We work with any E-Books, Notes, or Reference materials in PDF format")
     pdf_docs = st.file_uploader("Upload your PDFs here", accept_multiple_files=True)
-    if st.button("Process"):
+    if st.button("Process PDFs"):
             with st.spinner("Processing"):
                  st.session_state.vector_store = get_vectorstore(pdf_docs)
     if st.button("Delete Chat"):
