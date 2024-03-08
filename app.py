@@ -84,7 +84,7 @@ with st.sidebar:
             with st.spinner("Processing"):
                  st.session_state.vector_store = get_vectorstore(pdf_docs)
     
-    st.download_button('Save Chat', text_contents)
+    # st.download_button('Save Chat', text_contents)
     
     
 # if "vector_store" not in st.session_state:
