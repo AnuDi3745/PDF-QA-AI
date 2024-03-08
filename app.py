@@ -92,7 +92,7 @@ with st.sidebar:
 
 if "chat_history" not in st.session_state:
         st.session_state.chat_history = [
-            AIMessage(content="Hi I am PDF-QA-AI, your PDF has processed please start asking questions!!"),
+            AIMessage(content="Hi I am PDF-QA-AI, your notes provider!!"),
         ]
 
 user_query = st.chat_input("Ask your question....")
