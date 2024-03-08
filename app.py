@@ -82,7 +82,8 @@ with st.sidebar:
             with st.spinner("Processing"):
                  st.session_state.vector_store = get_vectorstore(pdf_docs)
 
-    st.download_button('Download Chat',  st.session_state.chat_history)
+    if st.button("Download Chat"):
+         st.download_button('Download Chat',  st.session_state.chat_history)
 
     if st.button("Delete Chat"):
             st.session_state.chat_history = [
