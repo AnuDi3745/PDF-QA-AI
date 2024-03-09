@@ -34,7 +34,7 @@ def get_vectorstore(pdf_docs):
 
 
 def get_context_retriever_chain(vector_store):
-    llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
+    llm = ChatOpenAI()
     retriever = vector_store.as_retriever()  
     prompt = ChatPromptTemplate.from_messages([
       MessagesPlaceholder(variable_name="chat_history"),
