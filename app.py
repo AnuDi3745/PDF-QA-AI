@@ -8,7 +8,6 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain.llms import HuggingFaceHub
 
 
 load_dotenv()
@@ -34,7 +33,7 @@ def get_vectorstore(pdf_docs):
 
 
 def get_context_retriever_chain(vector_store):
-    llm = ChatOpenAI()
+    llm = ChatOpenAI()  
     retriever = vector_store.as_retriever()  
     prompt = ChatPromptTemplate.from_messages([
       MessagesPlaceholder(variable_name="chat_history"),
