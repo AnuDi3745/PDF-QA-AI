@@ -8,6 +8,8 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
+from langchain import HuggingFaceHub
+from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 
 
 load_dotenv()
@@ -27,13 +29,15 @@ def get_vectorstore(pdf_docs):
     )
     chunks = text_splitter.split_text(text)
     
-    embeddings = OpenAIEmbeddings()
+    # embeddings = OpenAIEmbeddings()
+    embeddings = HuggingFaceEmbeddings()
     vector_store = FAISS.from_texts(texts=chunks, embedding=embeddings)
     return vector_store
 
 
 def get_context_retriever_chain(vector_store):
-    llm = ChatOpenAI()  
+    # llm = ChatOpenAI()
+    llm = HuggingFaceHub(repo_id="google/flan-t5-large", model_kwargs={"temperature":5,"max_length":64})  
     retriever = vector_store.as_retriever()  
     prompt = ChatPromptTemplate.from_messages([
       MessagesPlaceholder(variable_name="chat_history"),
