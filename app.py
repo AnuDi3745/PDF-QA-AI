@@ -55,7 +55,7 @@ def get_conversational_rag_chain(retriever_chain):
     llm = HuggingFaceHub(repo_id="google/flan-t5-large", model_kwargs={"temperature":5,"max_length":64})
     
     prompt = ChatPromptTemplate.from_messages([
-      ("system", "Answer the user's questions based on the below context:\n\n{context}"),
+      ("system", "Answer the user's questions in detailed manner based on the below context:\n\n{context}"),
       MessagesPlaceholder(variable_name="chat_history"),
       ("user", "{input}"),
     ])
