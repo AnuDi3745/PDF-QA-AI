@@ -73,7 +73,7 @@ def get_response(user_input):
         "input": user_query
     })
     
-    return response['answer'][3]
+    return response['answer']
 
 st.set_page_config(page_title="PDF-QA-AI", page_icon="📚")
 
@@ -111,7 +111,7 @@ user_query = st.chat_input("Ask your question....")
 if user_query is not None and user_query != "":
         response = get_response(user_query)
         st.session_state.chat_history.append(HumanMessage(content=user_query))
-        st.session_state.chat_history.append(AIMessage(content=response))
+        st.session_state.chat_history.append(AIMessage(content=response[3]))
         
 
 for message in st.session_state.chat_history:
