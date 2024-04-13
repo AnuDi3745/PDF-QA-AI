@@ -73,7 +73,7 @@ def get_response(user_input):
         "input": user_query
     })
     
-    return response['answer'][0]
+    return response['answer'][3]
 
 st.set_page_config(page_title="PDF-QA-AI", page_icon="📚")
 
