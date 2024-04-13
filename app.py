@@ -72,8 +72,8 @@ def get_response(user_input):
         "chat_history": st.session_state.chat_history,
         "input": user_query
     })
-    # temp1 = response['answer'].find("PDF-QA-AI")
-    return response['answer']
+    temp1 = response['answer'].find("PDF-QA-AI")
+    return response['answer'][temp1:]
 
 st.set_page_config(page_title="PDF-QA-AI", page_icon="📚")
 
