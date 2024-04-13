@@ -52,7 +52,7 @@ def get_context_retriever_chain(vector_store):
 def get_conversational_rag_chain(retriever_chain): 
     
     # llm = ChatOpenAI()
-    llm = HuggingFaceHub(repo_id="google/flan-t5-large", model_kwargs={"temperature":5,"max_length":64})
+    llm = HuggingFaceHub(repo_id="mistralai/Mistral-7B-Instruct-v0.2", model_kwargs={"temperature":5,"max_length":64})
     
     prompt = ChatPromptTemplate.from_messages([
       ("system", "Answer the user's questions based on the below context:\n\n{context}"),
