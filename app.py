@@ -54,13 +54,13 @@ def get_conversational_rag_chain(retriever_chain):
     # llm = ChatOpenAI()
     llm = HuggingFaceHub(repo_id="mistralai/Mistral-7B-Instruct-v0.1", model_kwargs={"temperature":5,"max_length":64})
     
-    prompt = ChatPromptTemplate.from_messages([
-      ("system", "Answer the user's questions in detailed manner based on the below context:\n\n{context}"),
-      MessagesPlaceholder(variable_name="chat_history"),
-      ("user", "{input}"),
-    ])
+    # prompt = ChatPromptTemplate.from_messages([
+    #   ("system", "Answer the user's questions in detailed manner based on the below context:\n\n{context}"),
+    #   MessagesPlaceholder(variable_name="chat_history"),
+    #   ("user", "{input}"),
+    # ])
     
-    stuff_documents_chain = create_stuff_documents_chain(llm,prompt)
+    stuff_documents_chain = create_stuff_documents_chain(llm)
     
     return create_retrieval_chain(retriever_chain, stuff_documents_chain)
 
