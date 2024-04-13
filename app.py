@@ -55,7 +55,7 @@ def get_conversational_rag_chain(retriever_chain):
     llm = HuggingFaceHub(repo_id="mistralai/Mistral-7B-Instruct-v0.1", model_kwargs={"temperature":5,"max_length":64})
     
     prompt = ChatPromptTemplate.from_messages([
-      ("system", "Answer the user's questions in detailed manner based on the below context:\n\n{context}"),
+      ("system", "You are a PDF based chatbot providing detailed answers based on the given context. This is your context:\n\n{context}"),
       MessagesPlaceholder(variable_name="chat_history"),
       ("user", "{input}"),
     ])
