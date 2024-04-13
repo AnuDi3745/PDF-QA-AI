@@ -73,7 +73,7 @@ def get_response(user_input):
         "input": user_query
     })
     temp1 = response['answer'].find('Human')
-    return response['answer'][10:]
+    return response['answer']
 
 st.set_page_config(page_title="PDF-QA-AI", page_icon="📚")
 
