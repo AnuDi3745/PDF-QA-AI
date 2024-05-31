@@ -70,7 +70,7 @@ def get_response(user_input):
     
     response = conversation_rag_chain.invoke({
         "chat_history": st.session_state.chat_history,
-        "input": user_query
+        "input": user_input
     })
     temp1 = response['answer'].find("PDF-QA-AI")
     return response['answer'][temp1:]
@@ -94,7 +94,6 @@ with st.sidebar:
             AIMessage(content="Hi I am PDF-QA-AI, your notes provider!!"),
         ]
 
-        
     
 if "vector_store" not in st.session_state:
      st.session_state.vector_store = get_vectorstore(pdf_docs)
