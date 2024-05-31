@@ -92,8 +92,8 @@ with st.sidebar:
         ]
 
     
-if "vector_store" not in st.session_state:
-     st.session_state.vector_store = get_vectorstore(pdf_docs)
+# if "vector_store" not in st.session_state:
+#      st.session_state.vector_store = get_vectorstore(pdf_docs)
 
 if "chat_history" not in st.session_state:
         st.session_state.chat_history = [
