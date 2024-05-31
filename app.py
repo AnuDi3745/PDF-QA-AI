@@ -29,15 +29,15 @@ def get_vectorstore(pdf_docs):
     )
     chunks = text_splitter.split_text(text)
     
-    # embeddings = OpenAIEmbeddings()
-    embeddings = HuggingFaceEmbeddings()
+    embeddings = OpenAIEmbeddings()
+    # embeddings = HuggingFaceEmbeddings()
     vector_store = FAISS.from_texts(texts=chunks, embedding=embeddings)
     return vector_store
 
 
 def get_context_retriever_chain(vector_store):
-    # llm = ChatOpenAI()
-    llm = HuggingFaceHub(repo_id="google/flan-t5-large", model_kwargs={"temperature":5,"max_length":64})  
+    llm = ChatOpenAI()
+    # llm = HuggingFaceHub(repo_id="google/flan-t5-large", model_kwargs={"temperature":5,"max_length":64})  
     retriever = vector_store.as_retriever()  
     prompt = ChatPromptTemplate.from_messages([
       MessagesPlaceholder(variable_name="chat_history"),
@@ -51,8 +51,8 @@ def get_context_retriever_chain(vector_store):
     
 def get_conversational_rag_chain(retriever_chain): 
     
-    # llm = ChatOpenAI()
-    llm = HuggingFaceHub(repo_id="mistralai/Mistral-7B-Instruct-v0.2", model_kwargs={"temperature":5,"max_length":64})
+    llm = ChatOpenAI()
+    # llm = HuggingFaceHub(repo_id="mistralai/Mistral-7B-Instruct-v0.2", model_kwargs={"temperature":5,"max_length":64})
     
     prompt = ChatPromptTemplate.from_messages([
       ("system", "Answer the user's questions in based on the below context:\n\n{context} by generating detailed explanation"),
